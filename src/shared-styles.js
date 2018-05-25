@@ -36,10 +36,36 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       }
 
       h1 {
-        margin: 16px 0;
-        color: #212121;
-        font-size: 22px;
+          margin: 16px 0;
+          color: #212121;
+          font-size: 22px;
+        }
+
+        .container {
+          display:flex;
+          flex-wrap:wrap;
+          flex-direction:row;
+          justify-content:flex-start;
+          align-items:stretch;
       }
+      
+      .flexbox-container {
+        margin: 24px;
+        padding: 16px;
+        display: -ms-flex;
+        display: -webkit-flex;
+        display: flex;
+      }
+      
+      .flexbox-container > div {
+        width: 50%;
+        padding: 10px;
+      }
+      
+      .flexbox-container > div:first-child {
+        margin-right: 20px;
+      }
+
     </style>
   </template>
 </dom-module>`;

@@ -10,6 +10,9 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import './card-base.js';
+import './override-template/child-component-b.js';
+
 
 class MyView2 extends PolymerElement {
   static get template() {
@@ -25,9 +28,24 @@ class MyView2 extends PolymerElement {
       <div class="card">
         <div class="circle">2</div>
         <h1>Override a base class template in a child class</h1>
-        <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-        <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+        <p>To override a base class's template definition, supply your own template for your child class.</p>
       </div>
+        
+      <div class="flexbox-container">
+  
+      <div>
+        <h2> Base Class </h2>
+        <h3> card-base </h3>
+        <card-base></card-base>
+      </div>
+      
+      <div>
+        <h2> Child Class </h2>
+        <h3> child-component-b </h3>
+        <child-component-b></child-component-b>
+      </div>
+    </div>
+
     `;
   }
 }
