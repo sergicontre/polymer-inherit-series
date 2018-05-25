@@ -10,12 +10,51 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 
-export class CardBase extends PolymerElement {
+export class CardBasePoints extends PolymerElement {
     static get template() {
         return html`
             <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+            ${this.componentStyles}
+
+            <div class="demo-card-square mdl-card mdl-shadow--2dp">  
+                ${this.headerTemplate}
+                ${this.mainContentTemplate}
+                ${this.footerTemplate}
+            </div>
+        `;
+    }
+
+    static get headerTemplate() {
+        return html ` 
+            <div class="mdl-card__title mdl-card--expand">
+                    <h2 class="mdl-card__title-text">Update</h2>
+            </div>
+        `;
+    }
+
+    static get footerTemplate() {
+        return html `
+            <div class="mdl-card__actions mdl-card--border" on-click="buttonHandler">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Button
+                    </a>
+            </div>
+        `;
+    }
+
+    static get mainContentTemplate() {
+        return html `
+            <div class="mdl-card__supporting-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Aenan convallis.
+            </div>
+        `;
+    }
+
+    static get componentStyles() {
+        return html `
             <style>
                 .demo-card-square.mdl-card {
                     width: 320px;
@@ -27,21 +66,6 @@ export class CardBase extends PolymerElement {
                     url('https://getmdl.io/assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
                 }
             </style>
-
-            <div class="demo-card-square mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand">
-                    <h2 class="mdl-card__title-text">Example</h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aenan convallis.
-                </div>
-                <div class="mdl-card__actions mdl-card--border" on-click="buttonHandler">
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Button
-                    </a>
-                </div>
-            </div>
         `;
     }
     
@@ -54,4 +78,4 @@ export class CardBase extends PolymerElement {
 
 
 
-window.customElements.define('card-base', CardBase);
+window.customElements.define('card-base-points', CardBasePoints);

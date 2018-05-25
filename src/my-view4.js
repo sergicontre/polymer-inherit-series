@@ -10,6 +10,9 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import './extension-points/child-component-d.js';
+import './card-base-points.js';
+
 
 class MyView4 extends PolymerElement {
   static get template() {
@@ -25,8 +28,24 @@ class MyView4 extends PolymerElement {
       <div class="card">
         <div class="circle">4</div>
         <h1>Provide template extension points in a base class for content from a child class</h1>
-        <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-        <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+        <p>Polymer makes it easy to provide template extension points in a base class, which a child class can then optionally override. 
+          You can provide template extension points by composing your base class template literal using expressions, like this.partialTemplate.
+          The interpolated expressions act as partial templates ("partials") that the child class can override.</p>
+      </div>
+
+      <div class="flexbox-container">
+  
+        <div>
+          <h2> Base Class </h2>
+          <h3> card-base-points </h3>
+          <card-base-points></card-base-points>
+        </div>
+        
+        <div>
+          <h2> Child Class </h2>
+          <h3> child-component-d</h3>
+          <child-component-d></child-component-d>
+        </div>
       </div>
     `;
   }

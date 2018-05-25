@@ -10,6 +10,8 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import './card-base.js';
+import './extend-template/child-component-c.js';
 
 class MyView3 extends PolymerElement {
   static get template() {
@@ -25,8 +27,21 @@ class MyView3 extends PolymerElement {
       <div class="card">
         <div class="circle">3</div>
         <h1>Extend a base class template in a child class</h1>
-        <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-        <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+        <p>To extend a base class template, include the base class template in your child class template literal with the expression super.template You will also need to tag the template literal with the html function.</p>
+      </div>
+
+      <div class="flexbox-container">
+        <div>
+          <h2> Base Class </h2>
+          <h3> card-base </h3>
+          <card-base></card-base>
+        </div>
+        
+        <div>
+          <h2> Child Class </h2>
+          <h3> child-component-c </h3>
+          <child-component-c></child-component-c>
+        </div>
       </div>
     `;
   }
