@@ -26,10 +26,13 @@ class MyView1 extends PolymerElement {
         padding: 10px;
       }
     </style>
+    
     <div class="card">
       <div class="circle">1</div>
       <h1>Inherit a base class template without modifying it</h1>
       <p>To inherit a base class template without modifying it, do not supply a template definition in the child class declaration.</p>
+    </div>
+
 
     <div class="flexbox-container">
     
