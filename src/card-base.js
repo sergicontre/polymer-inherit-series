@@ -24,7 +24,7 @@ export class CardBase extends PolymerElement {
                 .demo-card-square > .mdl-card__title {
                     color: #fff;
                     background:
-                    url('https://getmdl.io/assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+                    url('images/dog.png') bottom right 15% no-repeat #46B6AC;
                 }
             </style>
 

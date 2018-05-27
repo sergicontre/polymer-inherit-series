@@ -25,7 +25,7 @@ export class ChildComponentD extends CardBasePoints {
                 .demo-card-square > .mdl-card__title {
                     color: #fff;
                     background:
-                    url('http://moziru.com/images/perro-clipart-transparent-16.png') bottom right 15% no-repeat #ff9900;
+                    url('images/dog2.png') bottom right 15% no-repeat #ff9900;
                 }
             </style>
         `;

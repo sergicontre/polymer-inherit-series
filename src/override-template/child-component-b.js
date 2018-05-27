@@ -15,7 +15,7 @@ export class ChildComponentB extends CardBase {
                 .demo-card-square > .mdl-card__title {
                     color: #fff;
                     background:
-                    url('https://vignette.wikia.nocookie.net/pacman/images/b/be/2469743-orange.png') bottom right 15% no-repeat #ff6666;
+                    url('images/orange.png') bottom right 15% no-repeat #ff6666;
                 }
             </style>
 
