@@ -12,13 +12,16 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
 import './card-base.js';
 import './inherit-template/child-component-a.js';
-import './code-sample/code-sample.js';
+import '@kuscamara/code-sample';
+import '@kuscamara/code-sample/themes/one-dark.js';
+import '@polymer/iron-collapse';
+
 
 class MyView1 extends PolymerElement {
   
   static get template() {
     return html`
-   
+
     <style include="shared-styles">
       :host {
         display: block;
@@ -33,7 +36,27 @@ class MyView1 extends PolymerElement {
       <p>To inherit a base class template without modifying it, do not supply a template definition in the child class declaration.</p>
     </div>
 
-
+    <button id="button" on-click="toggle">toggle collapse</button>
+ 
+    <iron-collapse id="collapse">
+      <code-sample>
+        <template preserve-content type="js">
+            class MyElement extends PolymerElement {
+              static get template() {
+                return html'
+                  <style>
+                    :host {
+                      display: block;
+                    }
+                  </style>
+                  <p>Hello world!</p>
+                ';
+              }
+            }
+        </template>
+      </code-sample>
+    </iron-collapse>
+  
     <div class="flexbox-container">
     
       <div>
@@ -56,9 +79,13 @@ class MyView1 extends PolymerElement {
     super.connectedCallback();
   }
 
+  toggle() {
+    this.$.collapse.toggle();
+    this.$.button.setAttribute('aria-expanded', this.$.collapse.opened);
+  }
+
+
 }
-
-
 
 
 window.customElements.define('my-view1', MyView1);
