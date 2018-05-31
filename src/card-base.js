@@ -51,7 +51,4 @@ export class CardBase extends PolymerElement {
 
 }
 
-
-
-
 window.customElements.define('card-base', CardBase);

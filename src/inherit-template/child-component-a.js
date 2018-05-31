@@ -1,7 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { CardBase } from '../card-base.js';
 
-export class ChildComponentA extends CardBase {
+class ChildComponentA extends CardBase {
 
 }
 
