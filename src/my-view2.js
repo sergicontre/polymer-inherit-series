@@ -12,7 +12,9 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
 import './card-base.js';
 import './override-template/child-component-b.js';
-
+import '@kuscamara/code-sample';
+import '@kuscamara/code-sample/themes/one-dark.js';
+import '@polymer/iron-collapse';
 
 class MyView2 extends PolymerElement {
   static get template() {
@@ -30,7 +32,52 @@ class MyView2 extends PolymerElement {
         <h1>Override a base class template in a child class</h1>
         <p>To override a base class's template definition, supply your own template for your child class.</p>
       </div>
-        
+
+      
+    <div class="card">
+      <h1>Code</h1>
+      <h3>Base Class</h3>
+      <h4 on-click="toggleBase">📝 card-base</h4>
+      <iron-collapse id="collapseBase">
+      <code-sample copy-clipboard-button>
+        <template preserve-content type="js">
+            import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+            export class CardBase extends PolymerElement {
+                static get template() {
+                    return html ' ... ';
+                }
+                
+                buttonHandler(){
+                    console.log('Hey! You clicked the View Update Button');
+                }
+
+            }
+            window.customElements.define('card-base', CardBase);
+        </template>
+      </code-sample>
+    </iron-collapse>
+
+    <h3>Child Class</h3>
+      <h4 on-click="toggleChild">📝 child-component-b</h4>
+      <iron-collapse id="collapseChild">
+      <code-sample copy-clipboard-button>
+        <template preserve-content type="js">
+        import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+        import { CardBase } from '../card-base.js';
+
+        class ChildComponentB extends CardBase {
+          static get template() { 
+            return  html 'Base class template has been overridden'; 
+          }
+        }
+
+        window.customElements.define('child-component-b', ChildComponentB);
+        </template>
+      </code-sample>
+    </iron-collapse>
+    </div>
+
+
       <div class="flexbox-container">
   
       <div>
@@ -47,6 +94,18 @@ class MyView2 extends PolymerElement {
     </div>
 
     `;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+  }
+
+  toggleBase() {
+    this.$.collapseBase.toggle();
+  }
+
+  toggleChild() {
+    this.$.collapseChild.toggle();
   }
 }
 
