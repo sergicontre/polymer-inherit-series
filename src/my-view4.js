@@ -12,7 +12,9 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
 import './extension-points/child-component-d.js';
 import './card-base-points.js';
-
+import '@kuscamara/code-sample';
+import '@kuscamara/code-sample/themes/one-dark.js';
+import '@polymer/iron-collapse';
 
 class MyView4 extends PolymerElement {
   static get template() {
@@ -20,27 +22,55 @@ class MyView4 extends PolymerElement {
       <style include="shared-styles">
         :host {
           display: block;
-
+      
           padding: 10px;
         }
       </style>
-
+      
       <div class="card">
         <div class="circle">4</div>
         <h1>Provide template extension points in a base class for content from a child class</h1>
-        <p>Polymer makes it easy to provide template extension points in a base class, which a child class can then optionally override. 
+        <p>Polymer makes it easy to provide template extension points in a base class, which a child class can then optionally override.
           You can provide template extension points by composing your base class template literal using expressions, like this.partialTemplate.
           The interpolated expressions act as partial templates ("partials") that the child class can override.</p>
       </div>
-
+      
+      <div class="card">
+        <h1>Code</h1>
+        <h3>Base Class</h3>
+        <h4 on-click="toggleBase">📝 card-base</h4>
+        <iron-collapse id="collapseBase">
+          <code-sample copy-clipboard-button>
+            <template preserve-content type="js">
+              import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'; export class CardBase extends PolymerElement
+              { static get template() { return html ' ... '; } buttonHandler(){ console.log('Hey! You clicked the View Update Button');
+              } } window.customElements.define('card-base', CardBase);
+            </template>
+          </code-sample>
+        </iron-collapse>
+      
+        <h3>Child Class</h3>
+        <h4 on-click="toggleChild">📝 child-component-d</h4>
+        <iron-collapse id="collapseChild">
+          <code-sample copy-clipboard-button>
+            <template preserve-content type="js">
+              import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'; import { CardBase } from '../card-base.js'; class
+              ChildComponentB extends CardBase { static get template() { return html 'Base class template has been overridden';
+              } } window.customElements.define('child-component-b', ChildComponentB);
+            </template>
+          </code-sample>
+        </iron-collapse>
+      </div>
+      
+      
       <div class="flexbox-container">
-  
+      
         <div>
           <h2> Base Class </h2>
           <h3> card-base-points </h3>
           <card-base-points></card-base-points>
         </div>
-        
+      
         <div>
           <h2> Child Class </h2>
           <h3> child-component-d</h3>
@@ -49,6 +79,15 @@ class MyView4 extends PolymerElement {
       </div>
     `;
   }
+
+  toggleBase() {
+    this.$.collapseBase.toggle();
+  }
+
+  toggleChild() {
+    this.$.collapseChild.toggle();
+  }
+
 }
 
 window.customElements.define('my-view4', MyView4);
