@@ -41,9 +41,18 @@ class MyView3 extends PolymerElement {
         <iron-collapse id="collapseBase">
           <code-sample copy-clipboard-button>
             <template preserve-content type="js">
-              import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'; export class CardBase extends PolymerElement
-              { static get template() { return html ' ... '; } buttonHandler(){ console.log('Hey! You clicked the View Update Button');
-              } } window.customElements.define('card-base', CardBase);
+            import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+            export class CardBase extends PolymerElement {
+                static get template() {
+                    return html ' ... ';
+                }
+                
+                buttonHandler(){
+                    console.log('Hey! You clicked the View Update Button');
+                }
+
+            }
+            window.customElements.define('card-base', CardBase);
             </template>
           </code-sample>
         </iron-collapse>
@@ -53,9 +62,20 @@ class MyView3 extends PolymerElement {
         <iron-collapse id="collapseChild">
           <code-sample copy-clipboard-button>
             <template preserve-content type="js">
-              import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'; import { CardBase } from '../card-base.js'; class
-              ChildComponentB extends CardBase { static get template() { return html 'Base class template has been overridden';
-              } } window.customElements.define('child-component-b', ChildComponentB);
+            import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+            import { CardBase } from '../card-base.js';
+
+            export class ChildComponentC extends CardBase {
+                static get template() {
+                  return html'
+                        <p>This content is from ChildClass.</p>
+                        <p>{super.template}</p>
+                        <p>Hello again from ChildClass.</p>
+                    ';
+
+                }
+            }
+            window.customElements.define('child-component-c', ChildComponentC);
             </template>
           </code-sample>
         </iron-collapse>
