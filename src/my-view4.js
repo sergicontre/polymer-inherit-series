@@ -42,9 +42,17 @@ class MyView4 extends PolymerElement {
         <iron-collapse id="collapseBase">
           <code-sample copy-clipboard-button>
             <template preserve-content type="js">
-              import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'; export class CardBase extends PolymerElement
-              { static get template() { return html ' ... '; } buttonHandler(){ console.log('Hey! You clicked the View Update Button');
-              } } window.customElements.define('card-base', CardBase);
+            export class BaseClass extends PolymerElement {
+              static get template() {
+                return html'
+                  <div>\${this.headerTemplate}</div>
+                  <p>Hello this is some content</p>
+                  <div>\${this.footerTemplate}</div>
+                ';
+              }
+              static get headerTemplate() { return html'<h1>BaseClass: Header</h1>' }
+              static get footerTemplate() { return html'<h1>BaseClass: Footer</h1>' }
+            }
             </template>
           </code-sample>
         </iron-collapse>
@@ -54,9 +62,13 @@ class MyView4 extends PolymerElement {
         <iron-collapse id="collapseChild">
           <code-sample copy-clipboard-button>
             <template preserve-content type="js">
-              import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'; import { CardBase } from '../card-base.js'; class
-              ChildComponentB extends CardBase { static get template() { return html 'Base class template has been overridden';
-              } } window.customElements.define('child-component-b', ChildComponentB);
+            export class ChildClass extends BaseClass {
+              // template definition inherited from BaseClass
+
+              // partial templates overridden by ChildClass
+              static get headerTemplate() { return html'<h2>ChildClass: Header</h2>' }
+              static get footerTemplate() { return html'<h2>ChildClass: Footer</h2>' }
+            }
             </template>
           </code-sample>
         </iron-collapse>

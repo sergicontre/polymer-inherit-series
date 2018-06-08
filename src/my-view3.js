@@ -44,7 +44,7 @@ class MyView3 extends PolymerElement {
             import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
             export class CardBase extends PolymerElement {
                 static get template() {
-                    return html ' ... ';
+                    return html '<p>This content is from Base Class.</p>';
                 }
                 
                 buttonHandler(){
@@ -69,7 +69,7 @@ class MyView3 extends PolymerElement {
                 static get template() {
                   return html'
                         <p>This content is from ChildClass.</p>
-                        <p>{super.template}</p>
+                        <p>\${super.template}</p>
                         <p>Hello again from ChildClass.</p>
                     ';
 

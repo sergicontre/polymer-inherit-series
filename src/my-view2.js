@@ -44,7 +44,7 @@ class MyView2 extends PolymerElement {
             import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
             export class CardBase extends PolymerElement {
                 static get template() {
-                    return html ' ... ';
+                    return html '<p>This content is from ChildClass.</p>';
                 }
                 
                 buttonHandler(){
